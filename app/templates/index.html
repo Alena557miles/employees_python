@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Employee List</title>
+  </head>
+  <body>
+    <form method="GET" action="/">
+      <label for="department">Filter by Department:</label>
+      <input type="text" id="department" name="department" />
+      <input type="submit" value="Filter" />
+    </form>
+    <h1>Employee List</h1>
+    <table>
+      <tr>
+        <th>Index</th>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Department</th>
+      </tr>
+      {% for employee in employees %}
+      <tr>
+        <td>{{ loop.index }}</td>
+        <td>
+          <a href="/employee/{{ employee.employee_id }}">{{ employee.name }}</a>
+        </td>
+        <td>{{ employee.surname }}</td>
+        <td>{{ employee.department }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>
